@@ -11,6 +11,7 @@ const useStyles = createUseStyles({
   },
   pagination: {
     display: "flex",
+    margin: "40px",
   },
 });
 
