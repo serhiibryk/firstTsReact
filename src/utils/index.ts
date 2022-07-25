@@ -11,4 +11,12 @@ export const menuList = [
     key: "/todo",
     label: "ToDo",
   },
+  {
+    key: "/calendar",
+    label: "Calendar",
+  },
+  {
+    key: "/carousel ",
+    label: "Carousel ",
+  },
 ];
