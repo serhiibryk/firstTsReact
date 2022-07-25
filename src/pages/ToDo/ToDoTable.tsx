@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useContext, useState } from "react";
 
-import { Input, Button } from "antd";
+import { Input, Button, Form } from "antd";
 import Item from "antd/lib/list/Item";
 
 import { Context, IGlobalState, IToDoList } from "../../store";
@@ -42,16 +42,34 @@ const ToDoTable = () => {
         ))}
       </div>
       <div>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <Button type="primary" onClick={handleAdd}>
-            СОЗДАТЬ НОВУЮ ЗАДАЧУ
-          </Button>
-          <Input
-            value={newTaskText}
-            onChange={handleChange}
-            placeholder="Ввведите цель"
-          />
-        </div>
+        <Form
+          name="basic"
+          onFinish={handleAdd}
+          style={{ display: "flex", flexDirection: "row" }}
+          autoComplete="off"
+        >
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              СОЗДАТЬ НОВУЮ ЗАДАЧУ
+            </Button>
+          </Form.Item>
+
+          <Form.Item
+            name="newGoal"
+            rules={[
+              {
+                pattern: /^[A-ZА-ЯЁ]+$/i,
+                message: "Pls input only text",
+              },
+            ]}
+          >
+            <Input
+              value={newTaskText}
+              onChange={handleChange}
+              placeholder="Ввведите цель"
+            />
+          </Form.Item>
+        </Form>
       </div>
     </div>
   );
